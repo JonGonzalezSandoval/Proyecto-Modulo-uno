@@ -8,28 +8,32 @@
 </head>
 <body>
     <header>
-        <img src="" alt="" class="logo">
-        <h1 class="h1-title"></h1>
-        <nav>
-            <ul>
-                <li></li>
-                <li></li>
-            </ul>
+        <nav class="navbar">
+            <div class="left-content">
+                <img src="your-logo.png" alt="Logo">
+                <h1>Title</h1>
+            </div>
+            <div class="right-content">
+                <a href="index.html">Main Page</a>
+                <a href="second.html">Have fun</a>
+            </div>
         </nav>
     </header>
     <main>
         <div class="div-searchEngine">
-            <select name="chooseRegion" id="chooseRegion">
+            <select name="Patata" id="chooseRegion" class="">
+
             </select>
 
             <select name="chooseSubRegion" id="chooseSubRegion">
-                
+               <option value="12"  selected disabled >SubRegiones</option> 
             </select>
             
             <select name="chooseCountry" id="chooseCountry">
             </select>
+            <button class="highlight-button">Escoge tu destino</button>
         </div>
-        <div class="div-countryInfo">
+        <div class="div-countryInfo" id="countryInfo">
 
         </div>
     </main>
