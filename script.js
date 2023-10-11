@@ -52,8 +52,6 @@ chooseRegion.addEventListener("change", regionUrl=>{
 })
        
 
-
-
     function loadSubregions(selectedRegion){
     
     fetch(`https://restcountries.com/v3.1/region/${selectedRegion}`)
