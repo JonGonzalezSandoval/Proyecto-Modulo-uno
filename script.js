@@ -1,36 +1,24 @@
-let cambioRegion = document.getElementById("chooseRegion");
-let cambioSubregion = document.getElementById("chooseSubRegion");
+   let selectCountry=document.getElementById("chooseCountry")   
+   let selectSubRegion = document.getElementById("chooseSubRegion")
+   
+   let finishRegion=document.getElementById("chooseRegion")
+   finishRegion.addEventListener("change", chosenRegion=>{
+   selectedRegion=chosenRegion.target.value
+    loadSubregions(selectedRegion)
 
-let placeholder = document.createElement("option")
+   }) 
 
+   let finishSubRegion=document.getElementById("chooseSubRegion")
+   finishSubRegion.addEventListener("change", chosenSubRegion=>{
+   selectedSubRegion=chosenSubRegion.target.value
+   loadCountries(selectedSubRegion)
 
-let temo = cambioRegion.name;
+   }) 
 
-
-placeholder.selected = true;
-placeholder.disabled = true;
-placeholder.textContent = temo;
-
-
-
-
-cambioRegion.addEventListener("change", element =>{
-
-let selectedRegion = element.target.value
-
-    loadSubregions(selectedRegion);
-
-})
-cambioSubregion.addEventListener("change", element =>{
-
-let selectedRegion = element.target.value
-
-    loadCountries(selectedRegion);
-
-})
-
-
-function loadRegions(){
+    function loadRegions(){
+    createPlaceholder(chooseRegion)
+    createPlaceholder(chooseSubRegion)
+    createPlaceholder(chooseCountry)
     fetch("https://restcountries.com/v3.1/all")
     .then((response)=>(response.json()))
     .then((data)=>{
@@ -43,30 +31,63 @@ function loadRegions(){
                 }
             })
             console.log(regionList)
+
+            let selectRegion=document.getElementById("chooseRegion")
             regionList.forEach((chooseRegion)=>{
-                let selectRegion=document.getElementById("chooseRegion")
+                
                 let createRegion= document.createElement("option")
-                createRegion.textContent = chooseRegion
+                createRegion.textContent=chooseRegion
                 selectRegion.appendChild(createRegion)
             })
-
-
-            cambioRegion.appendChild(placeholder)
-
-            
     })
     .catch((err)=>console.log(err));
 }
 
+chooseRegion = document.getElementById("chooseRegion")
+chooseRegion.addEventListener("change", regionUrl=>{
+    let selectedRegion = chooseRegion.value
+    console.log(selectedRegion)
+   removeChildren(selectCountry)
+   createPlaceholder(chooseCountry)
+})
+       
 
 
 
 function loadSubregions(selectedRegion){
-
+    
     fetch(`https://restcountries.com/v3.1/region/${selectedRegion}`)
     .then((response)=>(response.json()))
     .then((data)=>{
-        console.log(data);
+        let regionList=[]
+            data.forEach(countryNameRegion => {
+                let region=countryNameRegion.region
+                
+                if (!regionList.includes(region)){
+                    regionList.push(region)
+                }
+            })
+            console.log(regionList)
+
+            let selectRegion=document.getElementById("chooseRegion")
+            regionList.forEach((chooseRegion)=>{
+                
+                let createRegion= document.createElement("option")
+                createRegion.textContent=chooseRegion
+                selectRegion.appendChild(createRegion)
+            })
+    })
+    .catch((err)=>console.log(err));
+}
+
+chooseRegion = document.getElementById("chooseRegion")
+chooseRegion.addEventListener("change", regionUrl=>{
+    let selectedRegion = chooseRegion.value
+    console.log(selectedRegion)
+   removeChildren(selectCountry)
+   createPlaceholder(chooseCountry)
+})
+ 
 
         let subregionList=[]
         data.forEach(countryNameSubregion => {
@@ -82,29 +103,35 @@ function loadSubregions(selectedRegion){
 
             console.log(subregionList)
 
-
-            let selectSubRegion = document.getElementById("chooseSubRegion")
+            removeChildren(selectSubRegion)
+            createPlaceholder(chooseSubRegion)
 
             console.log(selectSubRegion);
 
             subregionList.forEach((chooseSubRegion)=>{
-                   
+                    
                     let createSubRegion= document.createElement("option")
                     if (createSubRegion== undefined){
                         console.log("error creating option ")
                     }
 
-                    createSubRegion.textContent= chooseSubRegion
+                    createSubRegion.textContent=chooseSubRegion
 
                     selectSubRegion.appendChild(createSubRegion)
             })
-    })
-    .catch((err)=>console.log(err));
 }
 
-function loadCountries(paisSeleccionado){
+    chooseSubRegion = document.getElementById("chooseSubRegion");
+    chooseSubRegion.addEventListener("change", SubRegionUrl=>{
+    let selectedSubRegion = chooseSubRegion.value
+    console.log(selectedSubRegion)
+    });
 
-    fetch(`https://restcountries.com/v3.1/subregion/${paisSeleccionado}`)//   `https://restcountries.com/v3.1/subregion/${selectedSubregion}`
+
+   
+function loadCountries(selectedSubRegion){
+  
+    fetch(`https://restcountries.com/v3.1/subregion/${selectedSubRegion}`)
         .then((response)=>(response.json()))
         .then((data)=>{
             let countryList=[]
@@ -115,17 +142,42 @@ function loadCountries(paisSeleccionado){
                     }
                 })
                 console.log(countryList)
-                let selectCountry=document.getElementById("chooseCountry")
+                
+
+                removeChildren(selectCountry)
+                createPlaceholder(chooseCountry)
+
                 countryList.forEach((chooseCountry)=>{
+                    
                     let createCountry= document.createElement("option")
-                    createCountry.textContent = chooseCountry
+                    createCountry.textContent=chooseCountry
                     selectCountry.appendChild(createCountry)
                 })
         })
         .catch((err)=>console.log(err));
     }
 
-    loadRegions()
+
+function removeChildren(selectOption){
+    while (selectOption.firstChild){
+    selectOption.removeChild(selectOption.firstChild)
+    }
+}
+
+
+function createPlaceholder(chosenSelection){
+    let shortenChosenSelection= chosenSelection.id.substring(6)
+    let placeholder=document.createElement("option")
+    placeholder.selected=true;
+    placeholder.disabled=true;
+    placeholder.textContent=shortenChosenSelection
+    chosenSelection.appendChild(placeholder)
+}
+
+loadRegions()
+
+
+        loadRegions()
 
 
 
