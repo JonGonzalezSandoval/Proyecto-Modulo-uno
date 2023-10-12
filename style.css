@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    width: 100%;
 }
 
 /*header*/
@@ -20,6 +21,7 @@ h1 {
     background-color: #6282d3;
     color: white;
     padding: 10px;
+    border-bottom: solid 2px white;
 }
 
 .left-content {
@@ -36,30 +38,36 @@ h1 {
 }
 
 .right-content{
-    margin-right: 2%;
+    margin-right: 5%;
     display: flex;
     justify-content: center;
 }
 
 .right-content a {
-    margin: 0%;
-    padding: 0.5em;
+    width: 100%;
+    margin: 3%;
+    padding: 5% 6%;
     text-decoration: none;
     color: rgb(255, 255, 255);
-    margin-left: 5px;
     border-radius: 10px;
+    text-align: center;
+    text-wrap: nowrap;
 }
 .right-content a:hover{
-
-    color: rgb(40, 101, 35);
-
+    background-color: hsl(230, 56%, 61%);
 }
 
 a.actualPage{
-    color: #6282d3;
-    background-color: white;
+    background-color: #6282d3;
     border-radius: 10px;
+    border: solid 1px white;
     /* text-decoration: ; */
+}
+
+a.actualPage:hover{
+    background-color: hsl(230, 56%, 61%);
+    border-radius: 10px;
+    border: solid 1px white;
 }
 
 /* main -> the slogan and search div */
@@ -133,26 +141,65 @@ button{
     box-sizing: border-box; /* Ensures padding and borders are included in the width */
     padding: 10px; /* Add spacing around the items if needed */
     margin: 10px 0px;
-    
+    text-align: center;
+
+    display: flex;
+    align-items: center;
 }
 
 .div-container__div img{
-    
+    width: 30%;
 }
 
-/* .goLeft{
-    float: left;
+ .goLeft{
+    justify-content: space-around;
+    flex-direction: row;
+
 }
 
 .goRight{
-    float: right;
-} */
+    justify-content: space-around;
+    flex-direction: row-reverse;
+} 
+
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the items horizontally */
+    background-color: #333;
+    color: white;
+}
+
+footer *{
+    width: 95%;
+    padding: 0;
+    margin: 5px auto;
+}
+
+footer ul{
+    list-style: none;
+    display: flex;
+}
+
+footer .list-socialMedia{
+    
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 3% 2%;
+    border-bottom: solid 2px #1c1b1b;
+    
+   
+}
+
+footer ul li{
+    width: 22%;
+    margin: 0px;
+    text-align: center;
+}
+
+footer .list-languages{
+    justify-content: flex-end;
+}
 
 
 
-
-/* 
-.div-slogan{
-padding: 20%;
-margin: 0px;
-} */
