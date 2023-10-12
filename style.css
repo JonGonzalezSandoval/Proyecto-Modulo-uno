@@ -1,51 +1,23 @@
+*{
+    box-sizing: border-box;
+}
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
 }
 
-
+/*header*/
 h1 {
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin: 0;
 }
-
-select, button{
-    padding: 5px;
-    font-size: 32px;
-    border: 1px solid #ccc;
-    background-color: #f2f2f2;
-    color: #333;
-    border-radius: 10px; 
-    min-width: 40%;
-}
-button{
-    margin-left: 15px;
-    min-width: 20%;
-}
-
-.highlight-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-
-    transition: background-color 1s, box-shadow 0.3s;
-}
-
-/* Define the styles for the button when hovered */
-.highlight-button:hover {
-    background-color: #0056b3;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333;
+    background-color: #6282d3;
     color: white;
     padding: 10px;
 }
@@ -53,22 +25,134 @@ button{
 .left-content {
     display: flex;
     align-items: center;
-    margin-left: 5%;
+    margin-left: 2%;
+    height: 100%;
 }
 
 .left-content img {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     margin-right: 10px;
 }
 
+.right-content{
+    margin-right: 2%;
+    display: flex;
+    justify-content: center;
+}
+
 .right-content a {
+    margin: 0%;
+    padding: 0.5em;
     text-decoration: none;
+    color: rgb(255, 255, 255);
+    margin-left: 5px;
+    border-radius: 10px;
+}
+.right-content a:hover{
+
+    color: rgb(40, 101, 35);
+
+}
+
+a.actualPage{
+    color: #6282d3;
+    background-color: white;
+    border-radius: 10px;
+    /* text-decoration: ; */
+}
+
+/* main -> the slogan and search div */
+.main-div-search{
+    margin: 0 auto;
+    margin-bottom: 5%;
+    background-color: #6282d3;
+}
+
+h2{
+    font-size: medium;
+    margin: 0;
+    padding: 5%;
+    text-align: center;
     color: white;
-    margin-left: 20px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
 }
 
+.div-searchEngine{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+select{
+    margin: 0.5%;
+    padding: 5px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    background-color: #f2f2f2;
+    color: #333;
+    border-radius: 10px; 
+    min-width: 75%;
+    
+}
+
+
+button{
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bolder;
+
+    margin: 1%;
+    padding: 10px 20px;
+
+    transition: background-color 1s, box-shadow 0.3s;
+
+}
+
+.highlight-button {
+
+    margin-bottom: -15px;
+
+
+    min-width: 65%;
+}
+
+
+.highlight-button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+.div-container__div {
+    background-color: crimson;
+    width: 100%; /* Each item takes up 25% of the container's width to create 4 columns */
+    box-sizing: border-box; /* Ensures padding and borders are included in the width */
+    padding: 10px; /* Add spacing around the items if needed */
+    margin: 10px 0px;
+    
+}
+
+.div-container__div img{
+    
+}
+
+/* .goLeft{
+    float: left;
+}
+
+.goRight{
+    float: right;
+} */
+
+
+
+
+/* 
 .div-slogan{
-
+padding: 20%;
 margin: 0px;
-}
+} */
