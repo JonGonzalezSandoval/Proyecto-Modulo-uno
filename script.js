@@ -5,8 +5,8 @@ let finishRegion = document.getElementById("chooseRegion")
 finishRegion.addEventListener("change", chosenRegion => {
     selectedRegion = chosenRegion.target.value
     loadSubregions(selectedRegion)
-
 })
+
 
 let finishSubRegion = document.getElementById("chooseSubRegion")
 finishSubRegion.addEventListener("change", chosenSubRegion => {
@@ -16,7 +16,7 @@ finishSubRegion.addEventListener("change", chosenSubRegion => {
 
 })
 
-let finishCountry = document.getElementById("highlight-button")
+let finishCountry = document.getElementById("second-search-button")
 finishCountry.addEventListener("click",getUserCountry)
 
 
@@ -47,6 +47,7 @@ function loadRegions() {
         })
         .catch((err) => console.log(err));
 }
+
 
 chooseRegion = document.getElementById("chooseRegion")
 chooseRegion.addEventListener("change", regionUrl => {
@@ -96,14 +97,6 @@ function loadSubregions(selectedRegion) {
         })
         .catch((err) => console.log(err));
 }
-
-//  chooseSubRegion = document.getElementById("chooseSubRegion");
-//  chooseSubRegion.addEventListener("change", SubRegionUrl=>{
-//  let selectedSubRegion = chooseSubRegion.value
-//  console.log(selectedSubRegion)
-//  });
-
-
 
 function loadCountries(selectedSubRegion) {
 
@@ -164,12 +157,19 @@ function getUserCountry() {
 
 function setCountryOnWebsite(country) {
     let countryInfo = document.getElementById("countryInfo")
-    countryInfo.removeChild(countryInfo.firstChild)
-    let countryInfoList = document.createElement("ul")
+    while(countryInfo.hasChildNodes()){
+        countryInfo.removeChild(countryInfo.firstChild)
+    }
 
-    let countryNameLi = document.createElement("li")
-    countryNameLi.textContent = `Country name: ${country.name.common}`
-    countryInfoList.appendChild(countryNameLi)
+    let countryFlag = document.createElement("img")
+    countryFlag.src=country.flags.png
+    countryInfo.appendChild(countryFlag)
+
+    let countryName = document.createElement("h3")
+    countryName.textContent = `${country.name.common}`
+    countryInfo.appendChild(countryName)
+
+    let countryInfoList = document.createElement("ul")
 
     let countryCapitalLi = document.createElement("li")
     countryCapitalLi.textContent = `Capital: ${country.capital}`
@@ -198,7 +198,16 @@ function setCountryOnWebsite(country) {
 
 function randomizeCountries(){
     fetch(`https://restcountries.com/v3.1/all`)
+    .then(response=>response.json())
+    .then((data)=>{
+        randomNumber = parseInt(Math.random()*data.length) 
+        console.log(randomNumber)
+        let randomCountry = data[randomNumber]
+        setCountryOnWebsite(randomCountry)
+    })
 }
+randomizeCountries()
+
 // function randomCountry() {
     // fetch("https://restcountries.com/v3.1/all")//   `https://restcountries.com/v3.1/subregion/${selectedSubregion}`
     //     .then((response) => (response.json()))
