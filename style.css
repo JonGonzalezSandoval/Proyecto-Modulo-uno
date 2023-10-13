@@ -1,74 +1,205 @@
+*{
+    box-sizing: border-box;
+}
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    width: 100%;
 }
 
-
+/*header*/
 h1 {
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin: 0;
 }
 
-select, button{
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6282d3;
+    color: white;
+    padding: 10px;
+    border-bottom: solid 2px white;
+}
+
+.left-content {
+    display: flex;
+    align-items: center;
+    margin-left: 2%;
+    height: 100%;
+}
+
+.left-content img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+
+.right-content{
+    margin-right: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.right-content a {
+    width: 100%;
+    margin: 3%;
+    padding: 5% 6%;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    text-align: center;
+    text-wrap: nowrap;
+}
+.right-content a:hover{
+    background-color: hsl(230, 56%, 61%);
+}
+
+a.actualPage{
+    background-color: #6282d3;
+    border-radius: 10px;
+    border: solid 1px white;
+    /* text-decoration: ; */
+}
+
+a.actualPage:hover{
+    background-color: hsl(230, 56%, 61%);
+    border-radius: 10px;
+    border: solid 1px white;
+}
+
+/* main -> the slogan and search div */
+.main-div-search{
+    margin: 0 auto;
+    margin-bottom: 5%;
+    background-color: #6282d3;
+}
+
+h2{
+    font-size: medium;
+    margin: 0;
+    padding: 5%;
+    text-align: center;
+    color: white;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+}
+
+.div-searchEngine{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+select{
+    margin: 0.5%;
     padding: 5px;
-    font-size: 32px;
+    font-size: 20px;
     border: 1px solid #ccc;
     background-color: #f2f2f2;
     color: #333;
     border-radius: 10px; 
-    min-width: 40%;
-}
-button{
-    margin-left: 15px;
-    min-width: 20%;
+    min-width: 75%;
+    
 }
 
-.highlight-button {
-    padding: 10px 20px;
+
+button{
     background-color: #007bff;
     color: #fff;
     border: none;
     cursor: pointer;
+    border-radius: 10px;
+    font-weight: bolder;
+
+    margin: 1%;
+    padding: 10px 20px;
 
     transition: background-color 1s, box-shadow 0.3s;
+
 }
 
-/* Define the styles for the button when hovered */
+.highlight-button {
+
+    margin-bottom: -15px;
+
+
+    min-width: 65%;
+}
+
+
 .highlight-button:hover {
     background-color: #0056b3;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 
-.navbar {
+.div-container__div {
+    background-color: crimson;
+    width: 100%; /* Each item takes up 25% of the container's width to create 4 columns */
+    box-sizing: border-box; /* Ensures padding and borders are included in the width */
+    padding: 10px; /* Add spacing around the items if needed */
+    margin: 10px 0px;
+    text-align: center;
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
+}
+
+.div-container__div img{
+    width: 30%;
+}
+
+ .goLeft{
+    justify-content: space-around;
+    flex-direction: row;
+
+}
+
+.goRight{
+    justify-content: space-around;
+    flex-direction: row-reverse;
+} 
+
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the items horizontally */
     background-color: #333;
     color: white;
-    padding: 10px;
 }
 
-.left-content {
+footer *{
+    width: 95%;
+    padding: 0;
+    margin: 5px auto;
+}
+
+footer ul{
+    list-style: none;
     display: flex;
-    align-items: center;
-    margin-left: 5%;
 }
 
-.left-content img {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
+footer .list-socialMedia{
+    
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 3% 2%;
+    border-bottom: solid 2px #1c1b1b;
+    
+   
 }
 
-.right-content a {
-    text-decoration: none;
-    color: white;
-    margin-left: 20px;
+footer ul li{
+    width: 22%;
+    margin: 0px;
+    text-align: center;
 }
 
-.div-slogan{
-
-margin: 0px;
+footer .list-languages{
+    justify-content: flex-end;
 }
+
+
+
