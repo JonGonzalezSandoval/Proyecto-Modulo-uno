@@ -1,15 +1,14 @@
-let selectCountry = document.getElementById("chooseCountry")
+let chooseRegion = document.getElementById("chooseRegion")
 let selectSubRegion = document.getElementById("chooseSubRegion")
+let selectCountry = document.getElementById("chooseCountry")
 
-let finishRegion = document.getElementById("chooseRegion")
-finishRegion.addEventListener("change", chosenRegion => {
+chooseRegion.addEventListener("change", chosenRegion => {
     selectedRegion = chosenRegion.target.value
     loadSubregions(selectedRegion)
 })
 
 
-let finishSubRegion = document.getElementById("chooseSubRegion")
-finishSubRegion.addEventListener("change", chosenSubRegion => {
+selectSubRegion.addEventListener("change", chosenSubRegion => {
     selectedSubRegion = chosenSubRegion.target.value
     console.log(selectedSubRegion)
     loadCountries(selectedSubRegion)
@@ -49,7 +48,7 @@ function loadRegions() {
 }
 
 
-chooseRegion = document.getElementById("chooseRegion")
+
 chooseRegion.addEventListener("change", regionUrl => {
     let selectedRegion = chooseRegion.value
     console.log(selectedRegion)
@@ -169,6 +168,8 @@ function setCountryOnWebsite(country) {
     countryName.textContent = `${country.name.common}`
     countryInfo.appendChild(countryName)
 
+
+
     let countryInfoList = document.createElement("ul")
 
     let countryCapitalLi = document.createElement("li")
@@ -188,6 +189,7 @@ function setCountryOnWebsite(country) {
     let countryMapsRef = document.createElement("a")
     countryMapsRef.href = `${country.maps.googleMaps}`
     countryMapsRef.textContent = "Check out on maps!"
+    countryMapsRef.target = "_blank"
 
     countryMapsLi.appendChild(countryMapsRef)
 
