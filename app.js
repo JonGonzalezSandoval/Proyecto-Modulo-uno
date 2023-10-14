@@ -1,9 +1,9 @@
-chooseRegion = document.getElementById("chooseRegion")
+chooseRegionMain = document.getElementById("chooseRegionMain")
 
 loadMainRegions()
 
 function loadMainRegions() {
-    createPlaceholder(chooseRegion)
+    createPlaceholder(chooseRegionMain)
     fetch(`https://restcountries.com/v3.1/all`)
         .then((response) => (response.json()))
         .then((data) => {
@@ -17,12 +17,11 @@ function loadMainRegions() {
             })
             console.log(regionList)
 
-            let selectRegion = document.getElementById("chooseRegion")
             regionList.forEach((chooseRegion) => {
 
                 let createRegion = document.createElement("option")
                 createRegion.textContent = chooseRegion
-                selectRegion.appendChild(createRegion)
+                chooseRegionMain.appendChild(createRegion)
             })
         })
         .catch((err) => alert ("No se pudo cargar esta página"));

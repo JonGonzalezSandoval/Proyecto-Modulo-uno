@@ -1,31 +1,29 @@
-
-let chooseRegion = document.getElementById("chooseRegion")
-let selectSubRegion = document.getElementById("chooseSubRegion")
+let finishRegion = document.getElementById("chooseRegion")
+let selectSubregion = document.getElementById("chooseSubRegion")
 let selectCountry = document.getElementById("chooseCountry")
+let finishCountry = document.getElementById("second-search-button")
 
 
-chooseRegion.addEventListener("change", chosenRegion => {
+finishRegion.addEventListener("change", chosenRegion => {
     selectedRegion = chosenRegion.target.value
     loadSubregions(selectedRegion)
 })
 
 
-selectSubRegion.addEventListener("change", chosenSubRegion => {
-    selectedSubRegion = chosenSubRegion.target.value
-    console.log(selectedSubRegion)
-    loadCountries(selectedSubRegion)
-
+selectSubregion.addEventListener("change", chosenSubregion => {
+    selectedSubregion = chosenSubregion.target.value
+    console.log(selectedSubregion)
+    loadCountries(selectedSubregion)
 
 })
 
-let finishCountry = document.getElementById("second-search-button")
 finishCountry.addEventListener("click",getUserCountry)
 
 
 function loadRegions() {
-    createPlaceholder(chooseRegion)
-    createPlaceholder(chooseSubregion)
-    createPlaceholder(chooseCountry)
+    createPlaceholder(finishRegion)
+    createPlaceholder(selectSubregion)
+    createPlaceholder(selectCountry)
     fetch(`https://restcountries.com/v3.1/all`)
         .then((response) => (response.json()))
         .then((data) => {
@@ -47,11 +45,11 @@ function loadRegions() {
                 selectRegion.appendChild(createRegion)
             })
         })
-        .catch((err) => alert ("No se pudo cargar esta página"));
+        .catch((err) => alert ("No se pudo cargar esta página region"));
 }
 
 
-
+chooseRegion = document.getElementById("chooseRegion")
 chooseRegion.addEventListener("change", regionUrl => {
     let selectedRegion = chooseRegion.value
     console.log(selectedRegion)
@@ -83,7 +81,7 @@ function loadSubregions(selectedRegion) {
             console.log(subregionList)
 
             removeChildren(selectSubregion)
-            createPlaceholder(chooseSubregion)
+            createPlaceholder(selectSubregion)
 
             subregionList.forEach((chooseSubregion) => {
 
@@ -97,7 +95,7 @@ function loadSubregions(selectedRegion) {
                 selectSubregion.appendChild(createSubregion)
             })
         })
-        .catch((err) => alert ("No se pudo cargar esta página"));
+        .catch((err) => alert ("No se pudo cargar esta página subregion" + err));
 }
 
 function loadCountries(selectedSubregion) {
@@ -125,7 +123,7 @@ function loadCountries(selectedSubregion) {
                 selectCountry.appendChild(createCountry)
             })
         })
-        .catch((err) => alert ("No se pudo cargar esta página"));
+        .catch((err) => alert ("No se pudo cargar esta página pais"));
 }
 
 
@@ -174,8 +172,6 @@ function setCountryOnWebsite(country) {
     countryName.textContent = `${country.name.common}`
     countryInfo.appendChild(countryName)
 
-
-
     let countryInfoList = document.createElement("ul")
 
     let countryCapitalLi = document.createElement("li")
@@ -195,7 +191,6 @@ function setCountryOnWebsite(country) {
     let countryMapsRef = document.createElement("a")
     countryMapsRef.href = `${country.maps.googleMaps}`
     countryMapsRef.textContent = "Check out on maps!"
-    countryMapsRef.target = "_blank"
 
     countryMapsLi.appendChild(countryMapsRef)
 
