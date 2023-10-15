@@ -211,11 +211,12 @@ function setCountryOnWebsite(country) {
 /*------------------------------------------------------*/
     let favButton = document.createElement("button");
     favButton.id = country.name.common;
-    if(localStorage.getItem("favCountries")){
-        favButton.textContent = "Añadir favorito";
-        if(JSON.parse(localStorage.getItem("favCountries")).includes(country.name.common)){
+    if(localStorage.getItem("favCountries") && JSON.parse(localStorage.getItem("favCountries")).includes(country.name.common)){
+        // if(JSON.parse(localStorage.getItem("favCountries")).includes(country.name.common)){
             favButton.textContent = "Eliminar favorito";
-        }
+        // }
+    }else{
+        favButton.textContent = "Añadir favorito";
     }
     // console.log(country.name.common);
     
