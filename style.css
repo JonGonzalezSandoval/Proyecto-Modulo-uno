@@ -315,23 +315,21 @@ main{
     box-sizing: border-box; /* Optional: Makes padding and border fit within the 100% width */
 }
 
+
 .div-countryInfo img{
     padding: 0px;
     min-width: 100%;
     min-height: 220px;
     max-height: 230px;
-    
 }
 
 .div-countryInfo h3{
     text-align: center;
     font-size: 1.5em;
     margin-bottom: 0px;
-
-    
 }
 
-
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> New Media <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 @media(min-width: 960px){
 
 body{
@@ -528,12 +526,23 @@ footer .list-languages{
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Main Second <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 .div-countryInfo{
-    height: 500px;
-    width: 45%;
+    height: 700px;
+    width: 40%;
 }
 
 .div-countryInfo li{
-    margin: 20px;
+    margin: 10px;
+    margin-top: 40px;
+}
+
+.div-countryInfo img{
+    min-height: 300px;
+    max-height: 300px;
+}
+
+.div-countryInfo h3{
+    font-size: 2.2em;
+
 }
 
 .div-searchEngine select{

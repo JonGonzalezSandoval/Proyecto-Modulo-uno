@@ -1,6 +1,5 @@
-chooseRegionMain = document.getElementById("chooseRegionMain")
-
-loadMainRegions()
+let chooseRegionMain = document.getElementById("chooseRegionMain")
+let mainButton = document.getElementById("highlight-button");
 
 function loadMainRegions() {
     createPlaceholder(chooseRegionMain)
@@ -15,7 +14,7 @@ function loadMainRegions() {
                     regionList.push(region)
                 }
             })
-            console.log(regionList)
+            // console.log(regionList)
 
             regionList.forEach((chooseRegion) => {
 
@@ -28,10 +27,25 @@ function loadMainRegions() {
 }
 
 function createPlaceholder(chosenSelection) {
-    let shortenChosenSelection = chosenSelection.id.substring(6)
+    let shortenChosenSelection = chosenSelection.id.substring(6, 12)
     let placeholder = document.createElement("option")
     placeholder.selected = true;
     placeholder.disabled = true;
     placeholder.textContent = shortenChosenSelection
     chosenSelection.appendChild(placeholder)
 }
+
+function storageRegion(){
+    let selectedRegion = chooseRegionMain.value;
+    // console.log(selectedRegion);
+    localStorage.setItem("preSelectedRegion", JSON.stringify(selectedRegion))
+    window.location.href = 'second.html';
+}
+
+chooseRegionMain.addEventListener("change", () => mainButton.disabled = false)
+
+mainButton.addEventListener("click", storageRegion)
+
+
+
+loadMainRegions()
