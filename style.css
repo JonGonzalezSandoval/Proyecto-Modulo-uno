@@ -307,6 +307,7 @@ main{
 .div-countryInfo {
     margin: 20px;
     width: 95%;
+    height: 500px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -342,6 +343,60 @@ main{
     padding: 10px 20px;
 
 }
+
+/********************************************** Start Animation Test ****************************************************************/
+.image-container {
+    width: 230px;
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+    align-self: center;
+    padding-top: 50px;
+  }
+
+.image {
+    width: 230px;
+    height: 230px;
+    position: relative;
+  }
+
+  .image > img {
+    width: 230px;
+    height: 230px;
+    
+  }
+  
+  .circle {
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    background-color: transparent;
+    border: 42px solid transparent;
+    border-top: 42px solid #6282d3;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate 1s linear infinite;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
+
+
+
+
+
+
+
+/*********************************************** End Test *****************************************************/
 
 .div-favorites{
     align-self: center;
@@ -622,7 +677,40 @@ footer .list-languages{
     box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
 }
 
+/********************************************** Start Animation Test ****************************************************************/
+.image-container {
+    width: 300px;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+    align-self: center;
+    padding-top: 50px;
+  }
 
+.image {
+    width: 300px;
+    height: 300px;
+    position: relative;
+  }
+
+  .image > img {
+    width: 300;
+    height: 300;
+    
+  }
+  
+  .circle {
+    width: 300px;
+    height: 300px;
+    border: 55px solid transparent;
+    border-top: 55px solid #6282d3;
+
+  }
+
+
+
+
+/*********************************************** End Test *****************************************************/
 
 
 
