@@ -1,6 +1,7 @@
 *{
     box-sizing: border-box;
 }
+
 body {
     margin: 0;
     padding: 0;
@@ -9,7 +10,7 @@ body {
     background-color: antiquewhite;
 }
 
-/*header*/
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Header <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 h1 {
     font-size: 1rem;
     margin: 0;
@@ -73,7 +74,7 @@ a.actualPage:hover{
     border: solid 1px white;
 }
 
-/*footer*/
+/*>>>>>>>>>>>>>>>>>>>>>> Footer <<<<<<<<<<<<<<<<<<<<<<<*/
 
 
 footer{
@@ -88,6 +89,8 @@ footer *{
     width: 95%;
     padding: 0;
     margin: 5px auto;
+    text-decoration: none;
+    color: white;
 }
 
 footer ul{
@@ -100,19 +103,26 @@ footer .list-socialMedia{
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 3% 2%;
-    border-bottom: solid 2px #1c1b1b;
-    
-   
+
 }
 
 footer ul li{
     width: 22%;
     margin: 0px;
     text-align: center;
+    
 }
 
 footer .list-languages{
     justify-content: flex-end;
+    font-size: 0.8em;
+    padding: 0px;
+}
+
+footer p{
+    font-size: 0.5em;
+    border-top: solid 2px #1c1b1b;
+    padding-top: 5px;
 }
 
 
@@ -141,9 +151,9 @@ footer .list-languages{
 
 /* Style all font awesome icons */
 .fa {
-    padding: 1%;
+    padding: 5%;
     font-size: 30px;
-    width: 30%;
+    width: 30px;
     height: auto;
     text-align: center;
     text-decoration: none;
@@ -156,11 +166,7 @@ footer .list-languages{
   }
   
 
-
-
-
-
-/* main -> index */
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Main <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 .main-div-search{
     margin: 0 auto;
     margin-bottom: 5%;
@@ -193,6 +199,11 @@ select{
     border-radius: 10px; 
     min-width: 75%;
     max-width: 75%;
+    overflow: hidden;
+}
+
+option{
+    overflow: hidden;
 }
 
 
@@ -207,14 +218,14 @@ button{
     margin: 1%;
     padding: 10px 20px;
 
-    transition: background-color 1s, box-shadow 0.3s;
+    transition: background-color 1s, box-shadow 0.3s, border 1s;
 
 }
 
 .highlight-button {
 
     margin-bottom: -15px;
-
+    border: solid 1px white;
 
     min-width: 65%;
 }
@@ -222,21 +233,39 @@ button{
 
 .highlight-button:hover {
     background-color: #0056b3;
+    border: solid 1px black;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 
 .div-container__div {
-    background-color: crimson;
-    border:  solid 2px rgb(113, 14, 34);
-    width: 100%; /* Each item takes up 25% of the container's width to create 4 columns */
-    box-sizing: border-box; /* Ensures padding and borders are included in the width */
-    padding: 10px; /* Add spacing around the items if needed */
-    margin: 10px 0px;
+    background-color: #38369A;
+    color: white;
+    width: 100%; 
+    box-sizing: border-box; 
+    padding: 0px 5px; 
+    margin: 5px 0px;
+
     text-align: center;
 
     display: flex;
     align-items: center;
+}
+
+.div-container-div-text{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+
+    font-size: 0.6em;
+    margin: 0;
+    padding: 5px;
+}
+
+.div-container-div-text h2{
+    margin: 0;
+    padding: 0;
+    font-size: 1.5em;
 }
 
 .div-container__div img{
@@ -264,33 +293,279 @@ main{
 }
 
 .div-searchEngine{
-    min-width: 100%;
+    padding: 5px;
+    min-width: 99%;
+    border-bottom: solid 1px #333;
 }
 
-.div-countryInfo{
-    display: flex;
-    justify-content: center;
-    height: 200px;
+.div-countryInfo {
+    margin: 20px;
     width: 95%;
-    background-color: aqua;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid hidden;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+    /* border */
 }
 
-.div-countryInfo div{
-    padding: 1%;
-    height: 40%;
+.div-countryInfo > * {
     width: 100%;
-    background-color: #333;
+    box-sizing: border-box; /* Optional: Makes padding and border fit within the 100% width */
+}
+
+
+.div-countryInfo img{
+    padding: 0px;
+    min-width: 100%;
+    min-height: 220px;
+    max-height: 230px;
+}
+
+.div-countryInfo h3{
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 0px;
+}
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> New Media <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+@media(min-width: 960px){
+
+body{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> NavBar <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+header{
+    width: 100%;
+}
+
+
+h1 {
+    font-size: 3rem;
+    margin: 0;
+    align-self: flex-end;
+}
+
+.navbar {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    background-color: #6282d3;
+    color: white;
+    
+    height: 100px;
+    /* border-bottom: solid 2px antiquewhite; */
+}
+
+.left-content {
+    display: flex;
+    align-items: center;
+    margin-left: 2%;
+    height: 100%;
+}
+
+.left-content img {
+    width: 90px;
+    height: 90px;
+    margin-right: 10px;
+}
+
+.right-content{
+    margin-right: 5%;
+    display: flex;
+    justify-content: center;
+    font-size: 1.3em;
+}
+
+.right-content a {
+    width: 100%;
+    margin: 3%;
+    padding: 5% 6%;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    text-align: center;
+    text-wrap: nowrap;
+}
+.right-content a:hover{
+    background-color: hsl(230, 56%, 61%);
+    /* border: inset 1px #333; */
+    /* opacity: 0.7; */
+}
+
+/*>>>>>>>>>>>>>>>>>>>>>> Footer <<<<<<<<<<<<<<<<<<<<<<<*/
+
+footer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+footer ul{
+    width: 45%;
+}
+
+footer .list-socialMedia{
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 3% 2%;
+    width: 75%;
+}
+
+footer ul li{
+    width: 22%;
+    margin: 0px;
+    text-align: center;
+}
+
+footer .list-languages{
+    width: 10%;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 0.8em;
+    padding: 0px;
+}
+
+/* icons on the footer */
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    height: auto;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+  }
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Main >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+ main{
+    width: 80%;
+ }
+
+ /*   >>>>>>>>>>>>>>>>>>>> Main index <<<<<<<<<<<<<<<<<<*/
+
+.main-div-search{
+    width: 100%;
+}
+
+
+.main-div-search h2{
+    width: 100%;
+    font-size: 2.5em;
+}
+
+#chooseRegionMain{
+    font-size: large;
+    height: 50px;
+}
+
+.highlight-button{
+    height: 50px;
+    margin-bottom: -20px;
+    font-size: large;
+}
+
+
+
+ .div-container__div{
+    width: 85%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 10px;
+    justify-content: space-around;
+ }
+
+ .div-container-div-text{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+
+    font-size: 1em;
+    margin: 0;
+    padding: 5px;
+}
+
+.div-container-div-text h2{
+    margin: 0;
+    padding: 0;
+    font-size: 2em;
+}
+
+.div-container__div img{
+    width: 35%;
+    height: 95%;
+    border: solid 1px black;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+ .goLeft{
+    flex-direction: row;
+    float: left;
+
+}
+
+.goRight{
     flex-direction: row-reverse;
-    border-bottom: solid 1px white ;
+    float: right;
+} 
+
+
+
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Main Second <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+.div-countryInfo{
+    height: 700px;
+    width: 40%;
 }
 
-.div-countryInfo div img{
-    width: 30%;
+.div-countryInfo li{
+    margin: 10px;
+    margin-top: 40px;
+}
+
+.div-countryInfo img{
+    min-height: 300px;
+    max-height: 300px;
+}
+
+.div-countryInfo h3{
+    font-size: 2.2em;
+
+}
+
+.div-searchEngine select{
+    height: 50px;
+    font-size: large;
+}
+
+
+.second-search-button{
+    height: 50px;
+    font-size: large;
+}
+
+
+
+
+  
+
 
 
 }
+
+
 
 
 
