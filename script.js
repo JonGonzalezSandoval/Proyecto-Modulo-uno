@@ -47,7 +47,6 @@ function loadRegions() {
 
 
 function loadSubregions(selectedRegion) {
-
     fetch(`https://restcountries.com/v3.1/region/${selectedRegion}`)
     .then((response) => (response.json()))
     .then((data) => {
@@ -84,6 +83,7 @@ function loadSubregions(selectedRegion) {
             })
 
             selectSubregion.disabled = false;
+            finishCountry.disabled = true;
         }else{
             let createdSubregion = document.createElement("option")
             createdSubregion.selected = true;
@@ -136,7 +136,6 @@ function fillCountrySelect(data){
     })
 
     selectCountry.disabled = false;
-    finishCountry.disabled = false;
 }
     
     
@@ -245,7 +244,7 @@ function randomizedCountrie(){
     .then(response=>response.json())
     .then((data)=>{
         randomNumber = parseInt(Math.random()*data.length) 
-        // console.log(randomNumber)
+        console.log(randomNumber)
         let randomCountry = data[randomNumber]
         setCountryOnWebsite(randomCountry)
     })
@@ -284,10 +283,13 @@ selectSubregion.addEventListener("change", chosenSubregion => {
 selectCountry.addEventListener("change", () => finishCountry.disabled = false)
 
 
-finishCountry.addEventListener("click",getUserCountry);
+finishCountry.addEventListener("click", ()=>{
+    loadingIlusion(getUserCountry)
+});
 
 
-randomizedCountrie()
+// randomizedCountrie()
+loadingIlusion(randomizedCountrie);
 
 checkLS();
 
@@ -410,3 +412,42 @@ loadRegions()
         })
         .catch((err) => alert ("No se pudo cargar esta página Pais Favorito Seleccionado"));
     }
+
+
+
+
+    function loadingIlusion(nextFunction){
+        let countryInfo = document.getElementById("countryInfo")
+        while(countryInfo.hasChildNodes()){
+            countryInfo.removeChild(countryInfo.firstChild)
+        }
+
+        let wholeContainerDiv = document.createElement("div")
+        wholeContainerDiv.classList.add("image-container");
+
+        let newImageDiv = document.createElement("div")
+        newImageDiv.classList.add("image");
+
+
+        let newImage = document.createElement("img")
+        newImage.src = "./images/Logo_Explorex.png";
+
+
+        let newImageAnimation = document.createElement("div")
+        newImageAnimation.classList.add("circle");
+
+
+        
+        
+        newImageDiv.appendChild(newImage);
+        newImageDiv.appendChild(newImageAnimation);
+        wholeContainerDiv.appendChild(newImageDiv);
+        countryInfo.appendChild(wholeContainerDiv);
+
+         setTimeout(function () {
+            if (typeof nextFunction === 'function') {
+              nextFunction(); // Call the provided next function
+            }
+          }, 2000);
+    }
+
