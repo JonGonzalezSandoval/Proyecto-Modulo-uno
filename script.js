@@ -170,6 +170,7 @@ function getUserCountry() {
             setCountryOnWebsite(country)
         })
     })
+    .catch((err) => alert ("No se pudo cargar esta página pais escogido"));
 }
 
 
@@ -207,12 +208,35 @@ function setCountryOnWebsite(country) {
     countryMapsRef.href = `${country.maps.googleMaps}`
     countryMapsRef.textContent = "Check out on maps!"
     countryMapsRef.target = "_blank"
+
+/*------------------------------------------------------*/
+    let favButton = document.createElement("button");
+    favButton.id = country.name.common;
+    if(JSON.parse(localStorage.getItem("favCountries")).includes(country.name.common)){
+        favButton.textContent = "Eliminar favorito";
+    }else{
+        favButton.textContent = "Añadir favorito";
+    }
+    
+    // console.log(country.name.common);
+    
+    /*------------------------------------------------------*/
     
     countryMapsLi.appendChild(countryMapsRef)
     
     countryInfoList.appendChild(countryMapsLi)
     
     countryInfo.appendChild(countryInfoList)
+
+    /*------------------------------------------------------*/
+    countryInfo.appendChild(favButton)
+
+    // console.log(document.querySelector(`#${country.name.common}`));
+
+    document.getElementById(`${country.name.common}`).addEventListener("click", function(){
+        this.textContent = addFavCountryList(this.id)
+    });
+    /*------------------------------------------------------*/
 }
 
 
@@ -225,6 +249,7 @@ function randomizedCountrie(){
         let randomCountry = data[randomNumber]
         setCountryOnWebsite(randomCountry)
     })
+    .catch((err) => alert ("No se pudo cargar esta página Pais Aleatorio"));
 }
 
 
@@ -264,6 +289,7 @@ finishCountry.addEventListener("click",getUserCountry);
 
 randomizedCountrie()
 
+checkLS();
 
 loadRegions()
 
@@ -308,3 +334,79 @@ loadRegions()
         
         // randomCountry();
         
+    function addFavCountryList(selectedId){
+        let favArray = [];
+        let returnMessage = "";
+
+        if(localStorage.getItem("favCountries")){
+            favArray = JSON.parse(localStorage.getItem("favCountries"));
+        }
+
+
+        // console.log(selectedId);
+
+
+        if (favArray.includes(selectedId)) {
+            favArray = favArray.filter(country => country !== selectedId)
+            deleteFavCountryListDOM(selectedId)
+            returnMessage = "Añadir favorito"
+        }else{
+            favArray.push(selectedId);
+            addFavCountryListDOM(selectedId);
+            returnMessage = "Eliminar favorito"
+        }
+
+
+        localStorage.setItem("favCountries", JSON.stringify(favArray));
+        return returnMessage;
+
+    }
+
+    function addFavCountryListDOM(country){
+
+        let favoriteListDOM = document.getElementById("favCountry");
+        let newCountry = document.createElement("li");
+        newCountry.id = country + "Fav";
+        newCountry.textContent = country;
+
+
+        favoriteListDOM.appendChild(newCountry);
+
+        document.getElementById(country + "Fav").addEventListener("click", function(){
+            favoritedSelectedCountry(country)
+        })
+        
+
+    }
+
+
+    function deleteFavCountryListDOM(country){
+        // let favoriteListDOM = document.getElementById("favCountry");
+        let removeLi = document.getElementById(country+"Fav")
+        
+        removeLi.remove();
+
+        // favoriteListDOM.removeChild(document.getElementById(country))
+    }
+
+    function checkLS(){
+        let favArray = [];
+
+        if(localStorage.getItem("favCountries")){
+            favArray = JSON.parse(localStorage.getItem("favCountries"));
+        }
+
+        favArray.map(favCountry => addFavCountryListDOM(favCountry))
+    }
+
+
+    function favoritedSelectedCountry(selectedCountry){
+        fetch(`https://restcountries.com/v3.1/name/${selectedCountry}?fullText=true`)
+        .then((response)=>response.json())
+        .then((data)=>{
+            data.forEach((country)=>{            
+                setCountryOnWebsite(country)
+            })
+        })
+        .catch((err) => alert ("No se pudo cargar esta página Pais Favorito Seleccionado"));
+    }
