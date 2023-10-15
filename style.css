@@ -17,6 +17,7 @@ h1 {
 }
 
 .navbar {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -214,6 +215,7 @@ button{
     cursor: pointer;
     border-radius: 10px;
     font-weight: bolder;
+    border: solid 1px white;
 
     margin: 1%;
     padding: 10px 20px;
@@ -223,15 +225,12 @@ button{
 }
 
 .highlight-button {
-
     margin-bottom: -15px;
-    border: solid 1px white;
-
     min-width: 65%;
 }
 
 
-.highlight-button:hover {
+button:hover {
     background-color: #0056b3;
     border: solid 1px black;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -298,6 +297,13 @@ main{
     border-bottom: solid 1px #333;
 }
 
+.container-countries{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
 .div-countryInfo {
     margin: 20px;
     width: 95%;
@@ -328,6 +334,39 @@ main{
     font-size: 1.5em;
     margin-bottom: 0px;
 }
+
+.div-countryInfo button{
+    align-self: center;
+    width: 75%;
+    margin: 1%;
+    padding: 10px 20px;
+
+}
+
+.div-favorites{
+    align-self: center;
+    margin: 20px;
+    height: 150px;
+    width: 95%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid hidden;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.div-favorites li{
+    margin-bottom: 5px;
+    cursor: pointer;
+    width: auto;
+}
+
+.div-favorites li:hover{
+    color: #7ca5b8;
+    
+}
+
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> New Media <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 @media(min-width: 960px){
@@ -524,15 +563,34 @@ footer .list-languages{
 
 
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Main Second <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+.second-search-button{
+    height: 50px;
+    font-size: large;
+    width: 60%;
+}
+
+.div-searchEngine select{
+    height: 50px;
+    font-size: large;
+}
+
+
+.container-countries{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 
 .div-countryInfo{
-    height: 700px;
-    width: 40%;
+    height: 750px;
+    width: 50%;
+    position: relative;
 }
 
 .div-countryInfo li{
     margin: 10px;
-    margin-top: 40px;
+    margin-top: 7%;
 }
 
 .div-countryInfo img{
@@ -545,16 +603,27 @@ footer .list-languages{
 
 }
 
-.div-searchEngine select{
-    height: 50px;
-    font-size: large;
+.div-countryInfo button{
+    position: absolute;
+    bottom: 0;
 }
 
 
-.second-search-button{
-    height: 50px;
-    font-size: large;
+.div-favorites{
+    align-self: flex-start;
+    margin: 20px;
+    height: 150px;
+    width: 20%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid hidden;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
 }
+
+
+
 
 
 
