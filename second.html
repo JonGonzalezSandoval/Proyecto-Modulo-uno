@@ -11,31 +11,37 @@
     <header>
         <nav class="navbar">
             <div class="left-content">
-                <img src="./images/Logo_Explorex.png" alt="Logo">
+                <a href="index.html">
+                    <img src="./images/Logo_Explorex.png" alt="Logo">
+                </a>
                 <h1>Explorex</h1>
             </div>
             <div class="right-content">
-                <a href="index.html">Main Page</a>
-                <a href="second.html" class="actualPage">Have fun</a>
+                <a href="index.html">Inicio</a>
+                <a href="second.html" class="actualPage">Busca tu destino</a>
             </div>
         </nav>
     </header>
     <main>
         <div class="div-searchEngine">
-            <select name="chooseRegion" id="chooseRegion" class="">
+            <select name="Región" id="chooseRegion" class="">
 
             </select>
 
-            <select name="chooseSubRegion" id="chooseSubregion">
-               <option value="12"  selected disabled >SubRegiones</option> 
+            <select name="Subregión" id="chooseSubRegion" disabled>
             </select>
             
-            <select name="chooseCountry" id="chooseCountry">
+            <select name="País" id="chooseCountry" disabled>
             </select>
-            <button id="second-search-button" class="second-search-button">Escoge tu destino</button>
+            <button id="second-search-button" class="second-search-button" disabled>Escoge tu destino</button>
         </div>
-        <div class="div-countryInfo" id="countryInfo">
+        <div class="container-countries">
+            <div class="div-countryInfo" id="countryInfo">
 
+            </div>
+            <div class="div-favorites">
+                <ul id="favCountry"></ul>
+            </div>
         </div>
     </main>
     <footer>
@@ -46,8 +52,8 @@
             <li><a href="#" class="fa fa-google"></a></li>
         </ul>
         <ul class="list-languages">
-            <li>En</li>
-            <li>Es</li>
+            <li><a href="second.html">En</a> </li>
+            <li><a href="temp.html">Es</a> </li>
         </ul>
         <p>Copyright © 1990-2023 Explorex. Todos los derechos reservados</p>
     </footer>
