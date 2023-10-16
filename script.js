@@ -245,7 +245,7 @@ function randomizedCountrie(){
     .then(response=>response.json())
     .then((data)=>{
         randomNumber = parseInt(Math.random()*data.length) 
-        console.log(randomNumber)
+        // console.log(randomNumber)
         let randomCountry = data[randomNumber]
         setCountryOnWebsite(randomCountry)
     })
